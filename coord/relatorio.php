@@ -309,7 +309,7 @@ $lista_valores_4 = $c->getValoresDaEscolaDoPeriodo($idEscola, 4);
                     <?php
                       while($periodo < 5){
                         
-                        $lista_alunos_periodo = $c->getIdsAlunoPorPeriodo($periodo);
+                        $lista_alunos_periodo = $c->getDadosAlunoPorPeriodo($periodo);
                         $flag = FALSE;
 
                         foreach ($lista_alunos_periodo as $lista) {

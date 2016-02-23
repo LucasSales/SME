@@ -290,8 +290,13 @@ foreach($escolasRegional as $escola ){
         </div>
         
         <?php 
+        $periodo = 0;
+        foreach($escolasRegional as $escola ){
+            $idEscola2 = $escola->idEscola;
 
-        if(count($alunos) > 0){
+
+            $alunos2 = $c2->buscarAlunosPorEscola($idEscola2); 
+        if(count($alunos2) > 0){
         ?>
         <div class="ibox-content">
             
@@ -312,8 +317,8 @@ foreach($escolasRegional as $escola ){
                     <tbody>
                     <?php 
 
-                    $periodo = 1;
-                    foreach ($alunos as $aluno) {
+                    $periodo =  1;
+                    foreach ($alunos2 as $aluno) {
                     ?>
                       <tr>
                       <td>*</td>
@@ -321,7 +326,7 @@ foreach($escolasRegional as $escola ){
                     <?php
                       while($periodo < 5){
                         
-                        $lista_alunos_periodo = $c->getIdsAlunoPorPeriodo($periodo);
+                        $lista_alunos_periodo = $c->getDadosAlunoPorPeriodo($periodo);
                         $flag = FALSE;
 
                         foreach ($lista_alunos_periodo as $lista) {
@@ -373,6 +378,7 @@ foreach($escolasRegional as $escola ){
 
         <?php 
         }
+    }
         ?>
         </div>
         </div>
