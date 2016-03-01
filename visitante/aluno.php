@@ -12,12 +12,128 @@ $controladorPeriodo = new ControladorPeriodo();
 
 $aluno = $controladorAluno->buscarAluno($idAluno);
 
+$nivelPrimeiroPeriodo = $controladorPeriodo->getNivelAlunoPeriodo(1,$idAluno);
+$nivelSegundoPeriodo = $controladorPeriodo->getNivelAlunoPeriodo(2,$idAluno);
+$nivelTerceiroPeriodo = $controladorPeriodo->getNivelAlunoPeriodo(3,$idAluno);
+$nivelQuartoPeriodo = $controladorPeriodo->getNivelAlunoPeriodo(4,$idAluno);
+
+$nivel_primeiro_1 = 0;
+$nivel_primeiro_2 = 0;
+$nivel_primeiro_3 = 0;
+$nivel_primeiro_4 = 0;
+$nivel_primeiro_5 = 0;
+
+if($nivelPrimeiroPeriodo != null){
+    switch ($nivelPrimeiroPeriodo->nivel){
+        case 1:
+            $nivel_primeiro_1 = 1;
+            break;
+        case 2:
+            $nivel_primeiro_2 = 2;
+            break;
+        case 3:
+            $nivel_primeiro_3 = 3;
+            break;
+        case 4:
+            $nivel_primeiro_4 = 4;
+            break;
+        case 5:
+            $nivel_primeiro_5 = 5;
+            break;
+        default:
+            
+            break;
+}
+}
+$nivel_segundo_1=0;
+$nivel_segundo_2=0;
+$nivel_segundo_3=0;
+$nivel_segundo_4=0;
+$nivel_segundo_5 = 0;
+if($nivelSegundoPeriodo != null){
+   switch ($nivelSegundoPeriodo->nivel) {
+        case 1:
+            $nivel_segundo_1 = 1;
+            break;
+        case 2:
+            $nivel_segundo_2 = 2;
+            break;
+        case 3:
+            $nivel_segundo_3 = 3;
+            break;
+        case 4:
+            $nivel_segundo_4 = 4;
+            break;
+        case 4:
+            $nivel_segundo_5 = 5;
+            break;
+        default:
+            
+            break;
+} 
+}
+$nivel_terceiro_1=0;
+$nivel_terceiro_2=0;
+$nivel_terceiro_3=0;
+$nivel_terceiro_4=0;
+$nivel_terceiro_5=0;
+if($nivelTerceiroPeriodo != null){
+    switch ($nivelTerceiroPeriodo->nivel) {
+        case 1:
+            $nivel_terceiro_1=1;
+            break;
+        case 2:
+            $nivel_terceiro_2=2;
+            break;
+        case 3:
+            $nivel_terceiro_3=3;
+            break;
+        case 4:
+            $nivel_terceiro_4=4;
+            break;
+        case 5:
+            $nivel_terceiro_5=5;
+            break;
+        default:
+            
+        break;
+    }
+}
+
+$nivel_quarto_1 = 0;
+$nivel_quarto_2 = 0;
+$nivel_quarto_3 = 0;
+$nivel_quarto_4 = 0;
+$nivel_quarto_5 = 0;
+if($nivelQuartoPeriodo != null){
+    switch ($nivelQuartoPeriodo->nivel) {
+        case 1:
+            $nivel_quarto_1 = 1;
+            break;
+        case 2:
+            $nivel_quarto_2 = 2;
+            break;
+        case 3:
+            $nivel_quarto_3 = 3;
+            break;
+        case 4:
+            $nivel_quarto_4 = 4;
+            break;
+        case 5:
+            $nivel_quarto_5 = 5;
+            break;
+        default:
+            
+            break;
+    }
+}
 ?>
 
 
 
 <head>
-    <title>Sare - Administrador</title>
+    <title>Sape - Visitante</title>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -160,7 +276,7 @@ $aluno = $controladorAluno->buscarAluno($idAluno);
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         
                         
-                        <li class="active">Escolas</li>
+                        <li class="active">Aluno</li>
                     </ol>
                     <div class="clearfix">
                     </div>
@@ -170,60 +286,11 @@ $aluno = $controladorAluno->buscarAluno($idAluno);
                 <div class="page-content">
 
 
-                    <!-- <div class="col-lg-12">
+                  <div class="col-lg-12">
                         <div class="list-group">
-                            <a class="list-group-item active">Pesquisar</a>
-                             <div id="generalTabContent" class="tab-content">
-                                    
-                                   
-                                
-                                <div id="tab-edit" class="tab-pane fade active in">
-                                        
-                                    <form action="../Controller/ControlePost.php" method="post" class="form-horizontal">
+                            <a class="list-group-item active">Aluno</a>
 
-                                        <div class="form-group"><label class="col-xs-2 control-label">Nome aluno:</label>
-
-                                            <div class="col-xs-10 controls">
-                                                <div class="row">
-                                                    <div class="col-xs-10">
-                                                        
-                                                        <input rows="3" class="form-control" name="mensagem"/>
-
-                                                        <div class="row">
-                                                            <div class="col-xs-4">
-                                                                <a href="#">
-                                                                    <i class="glyphicons glyphicons-file-camera"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="hidden" name="idRegional" value="<?php echo $idRegional; ?>" />
-                                                                <input type="hidden" name="acao" value="cadastrar"/>
-                                                            </div>
-                                                        </div>
-                                                            
-                                                        <div class="row">
-                                                            <div class="col-xs-4"></div>
-                                                            <div class="col-xs-4">
-                                                                <button type="submit" class="btn btn-green btn-block">Pesquisar</button>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                        
-                                                </div>
-                                            </div>
-                                         </div> 
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>            
- -->
-                    <div class="col-lg-12">
-                        <div class="list-group">
-                            <a class="list-group-item active">Alunos</a>
-
-                            <?php 
+                            <!--  <?php 
                                 if(isset($aluno)){
                                       ?>
 
@@ -288,12 +355,37 @@ $aluno = $controladorAluno->buscarAluno($idAluno);
                                       </tbody>
                                     </table>
 
+                            -->
 
+                            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                            <script type="text/javascript">
+                              google.charts.load('current', {'packages':['bar']});
+                              google.charts.setOnLoadCallback(drawChart);
+                              function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                  ['2016', 'Pre-Silabico', 'Silabico', 'Silabico Alfabético','Alfabético','Ortográfico'],
+                                  ['1 Bimestre', <?php echo $nivel_primeiro_1;?>, <?php echo $nivel_primeiro_2;?>, <?php echo $nivel_primeiro_3;?>,<?php echo $nivel_primeiro_4;?>,<?php echo $nivel_primeiro_5;?>],
+                                  ['2 Bimestre', <?php echo $nivel_segundo_1;?>, <?php echo $nivel_segundo_2;?>, <?php echo $nivel_segundo_3;?>,<?php echo $nivel_segundo_4;?>,<?php echo $nivel_segundo_5;?>],
+                                  ['3 Bimestre', <?php echo $nivel_terceiro_1;?>, <?php echo $nivel_terceiro_2;?>, <?php echo $nivel_terceiro_3;?>,<?php echo $nivel_terceiro_4;?>,<?php echo $nivel_terceiro_5;?>],
+                                  ['4 Bimestre', <?php echo $nivel_quarto_1;?>,<?php echo $nivel_quarto_2;?>, <?php echo $nivel_quarto_3;?>, <?php echo $nivel_quarto_4;?>,<?php echo $nivel_quarto_5   ;?>]
+                                ]);
 
+                                var options = {
+                                  chart: {
+                                    title: '<?php echo $aluno->nome_aluno;?>',
+                                    subtitle: 'Nivel por bimestre',
+                                  }
+                                };
 
+                                var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
-
-
+                                chart.draw(data, options);
+                              }
+                            </script>
+                          </head>
+                          <body>
+                            <div id="columnchart_material" style="width: 982px; height: 500px;"></div>
+                          </body>
 
 
 

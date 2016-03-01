@@ -16,7 +16,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
-	<title>SARE - SME</title>
+	<title>SAPE - SME</title>
 
 	<link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
@@ -32,7 +32,7 @@
 	<section class="container login-form">
 		<section>
 			<form method="post" action="Controller/ControleLogin.php" role="login">
-				
+				<img data-holder-rendered="true" src="../img/sme.jpg" style="width: 64px; height: 64px;" class="media-object" data-src="holder.js/64x64" alt="64x64">
 				<h1>SAPE</h1>
 
 				<div class="form-group">

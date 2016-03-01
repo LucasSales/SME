@@ -105,104 +105,45 @@ $lista_valores_4 = $c->getValoresDaEscolaDoPeriodo($idEscola, 4);
         $qtd_ort_4 = $qtd_ort_4 + 1;
     
     }
-
+$qtd_presilabico_media = ($qtd_presilabico_1+$qtd_presilabico_2+$qtd_presilabico_3+$qtd_presilabico_4)/4;
+$qtd_silabico_media = ($qtd_silabico_1+$qtd_silabico_2+$qtd_silabico_3+$qtd_silabico_4)/4;
+$qtd_silabico_alf_media = ($qtd_silabico_alf_1+$qtd_silabico_alf_2+$qtd_silabico_alf_3+$qtd_silabico_alf_4)/4;
+$qtd_alf_media = ($qtd_alf_1+$qtd_alf_2+$qtd_alf_3+$qtd_alf_4)/4;
+$qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
   ?>
 
 
 <html>
   <head>
-    <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-
-      // Load the Visualization API and the piechart package.
-      google.load('visualization', '1.0', {'packages':['corechart']});
-
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.setOnLoadCallback(drawChart);
-
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
-
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['Pre-silabico', <?php echo $qtd_presilabico_1;?>],
-          ['Silabico', <?php echo $qtd_silabico_1; ?>],
-          ['Silabico Alfabetico', <?php echo $qtd_silabico_alf_1; ?>],
-          ['Alfabetico', <?php echo $qtd_alf_1; ?>],
-          ['Ortografico', <?php echo $qtd_ort_1; ?>]
+        var data = google.visualization.arrayToDataTable([
+          ['Bimestre', 'Pré-Silabico', 'Silabico', 'Silábico-Alfabético','Alfabetico','Ortografico'],
+          ['1 Bimestre', <?php echo $qtd_presilabico_1;?>, <?php echo $qtd_silabico_1;?>, <?php echo $qtd_silabico_alf_1?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_1?>],
+          ['2 Bimestre', <?php echo $qtd_presilabico_2;?>, <?php echo $qtd_silabico_2;?>, <?php echo $qtd_silabico_alf_2?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_2?>],
+          ['3 Bimestre', <?php echo $qtd_presilabico_3;?>, <?php echo $qtd_silabico_3;?>, <?php echo $qtd_silabico_alf_3?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_3?>],
+          ['4 Bimestre', <?php echo $qtd_presilabico_4;?>, <?php echo $qtd_silabico_4;?>, <?php echo $qtd_silabico_alf_4?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_4?>]
         ]);
 
-        var data2 = new google.visualization.DataTable();
-        data2.addColumn('string', 'Topping');
-        data2.addColumn('number', 'Slices');
-        data2.addRows([
-          ['Pre-silabico', <?php echo $qtd_presilabico_2;?>],
-          ['Silabico', <?php echo $qtd_silabico_2; ?>],
-          ['Silabico Alfabetico', <?php echo $qtd_silabico_alf_2; ?>],
-          ['Alfabetico', <?php echo $qtd_alf_2; ?>],
-          ['Ortografico', <?php echo $qtd_ort_2; ?>]
-        ]);
+        var options = {
+          chart: {
+            title: 'Grafico por Bimestre',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          }
+        };
 
-        var data3 = new google.visualization.DataTable();
-        data3.addColumn('string', 'Topping');
-        data3.addColumn('number', 'Slices');
-        data3.addRows([
-          ['Pre-silabico', <?php echo $qtd_presilabico_3;?>],
-          ['Silabico', <?php echo $qtd_silabico_3; ?>],
-          ['Silabico Alfabetico', <?php echo $qtd_silabico_alf_3; ?>],
-          ['Alfabetico', <?php echo $qtd_alf_3; ?>],
-          ['Ortografico', <?php echo $qtd_ort_3; ?>]
-        ]);
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
-        var data4 = new google.visualization.DataTable();
-        data4.addColumn('string', 'Topping');
-        data4.addColumn('number', 'Slices');
-        data4.addRows([
-          ['Pre-silabico', <?php echo $qtd_presilabico_4;?>],
-          ['Silabico', <?php echo $qtd_silabico_4; ?>],
-          ['Silabico Alfabetico', <?php echo $qtd_silabico_alf_4; ?>],
-          ['Alfabetico', <?php echo $qtd_alf_4; ?>],
-          ['Ortografico', <?php echo $qtd_ort_4; ?>]
-        ]);
-
-
-        // Set chart options
-        var options = {'title':'Periodo 1',
-                       'width':400,
-                       'height':300};
-
-                       var options2 = {'title':'Periodo 2',
-                       'width':400,
-                       'height':300};
-
-                       var options3 = {'title':'Periodo 3',
-                       'width':400,
-                       'height':300};
-
-                       var options4 = {'title':'Periodo 4',
-                       'width':400,
-                       'height':300};
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
         chart.draw(data, options);
-
-        var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
-        chart2.draw(data2, options2);
-
-        var chart3 = new google.visualization.PieChart(document.getElementById('chart_div3'));
-        chart3.draw(data3, options3);
-
-        var chart4 = new google.visualization.PieChart(document.getElementById('chart_div4'));
-        chart4.draw(data4, options4);
       }
     </script>
+  </head>
+  <body>
+    <div id="columnchart_material" style="width: 1250px; height: 500px;"></div>
+  </body>
 
 
   <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"/>

@@ -17,7 +17,7 @@ $todasEscola = $ControladorEscola->buscarEscolaPorRegional($idRegional);
 
 
 <head>
-    <title>Sare - Administrador</title>
+    <title>Sape - Visitante</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -141,6 +141,9 @@ $todasEscola = $ControladorEscola->buscarEscolaPorRegional($idRegional);
                     <li class="none"><a href="relatorio_regional.php?id_regional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-book">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Gerar Relatorio</span></a></li>
+                    <li class="none"><a href="gerar_pdf.php?id_regional=<?php echo $idRegional;?>"><i class="glyphicon glyphicon-book">
+                        <div class="icon-bg bg-orange"></div>
+                    </i><span class="menu-title">Gerar PDF</span></a></li>
      
                     
                 </ul>

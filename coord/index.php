@@ -156,7 +156,9 @@ $escolas = $controladorEscola->buscarEscolaPorRegional($idRegional);
                     <li class="none"><a href="indexPost.php"><i class="glyphicon glyphicon-pencil">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Post</span></a></li>
-     
+                    <li class="none"><a href="gerar_pdf.php?id_regional=<?php echo $_SESSION['id_regional'];?>"><i class="glyphicon glyphicon-book">
+                        <div class="icon-bg bg-orange"></div>
+                    </i><span class="menu-title">Gerar PDF</span></a></li>
                     
                 </ul>
             </div>
