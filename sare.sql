@@ -57,4 +57,4 @@ idPost integer,
 idImagem text
 );
 
-insert into admin(email, senha) values('admin@sare.com', 'adminsare');
+insert into admin(email, senha) values('admin@sape.com', '123');

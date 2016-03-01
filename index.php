@@ -32,7 +32,7 @@
 	<section class="container login-form">
 		<section>
 			<form method="post" action="Controller/ControleLogin.php" role="login">
-				<img data-holder-rendered="true" src="../img/sme.jpg" style="width: 64px; height: 64px;" class="media-object" data-src="holder.js/64x64" alt="64x64">
+				<!-- <img data-holder-rendered="true" src="img/logo.jpg" style="width: 64px; height: 64px;" class="media-object" data-src="holder.js/64x64" alt="64x64"> -->
 				<h1>SAPE</h1>
 
 				<div class="form-group">
