@@ -6,7 +6,11 @@ class EscolaDAO{
 	private $conexao;
 
 	public function __construct(){
-		$this->conexao = Conexao::getConexao();
+		try{
+			$this->conexao = Conexao::getConexao();
+		}catch(Exception $e){
+			return false;
+		}
 	}
 
 

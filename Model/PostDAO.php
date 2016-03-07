@@ -7,7 +7,11 @@ class PostDAO{
 	private $conexao;
 
 	public function __construct($conexao){
-		$this->conexao = $conexao;
+		try{
+			$this->conexao = $conexao;
+		}catch(Exception $e){
+			return false;
+		}
 	}
 
 	public function inserir($mensagem,$idRegional){

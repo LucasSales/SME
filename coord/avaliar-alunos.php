@@ -3,7 +3,9 @@ include_once '../Controller/ControladorEscola.php';
 include_once '../Controller/ControladorAluno.php';
 include_once '../Controller/ControladorTurma.php';
 
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
 
 $controladorAluno = new ControladorAluno();
 $controladorEscola = new ControladorEscola();

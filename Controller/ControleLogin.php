@@ -5,7 +5,9 @@ include_once('ControladorUsuario.php');
 $usuarioDAO = new UsuarioDAO();
 $controlador = new ControladorUsuario();
 
-session_start();
+if(!isset($_SESSION)){
+	session_start();
+}
 
 if(isset($_POST['acao'])){
 	$acao = $_POST['acao'];

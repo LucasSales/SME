@@ -9,7 +9,11 @@ class UsuarioDAO{
 	private $conexao;
 
 	public function __construct(){
-		$this->conexao = Conexao::getConexao();
+		try{
+			$this->conexao = Conexao::getConexao();
+		}catch(Exception $e){
+			return false;
+		}
 	}
 
 
@@ -34,30 +38,39 @@ class UsuarioDAO{
 
 	public function usuarioExiste($login, $senha){
 
-		$lista = $this::getAllUsuarios();	
-		foreach ($lista as $usuario) {
-			if($usuario->email == $login){
-				if($usuario->senha == $senha){
-					return true;
-				}
-			}		
-		}			
+		try{
+			$lista = $this->getAllUsuarios();	
+			foreach ($lista as $usuario) {
+				if($usuario->email == $login){
+					if($usuario->senha == $senha){
+						return true;
+					}
+				}		
+			}
+		}catch(Exception $e){
+
+		}		
 
 		return false;
 	}
 
 	public function isAdmin($login, $senha){
 
-		$lista = $this::getAllAdmin();	
-		foreach ($lista as $admin) {
-			if($admin->email == $login){
-				if($admin->senha == $senha){
-					return true;
-				}
-			}		
-		}			
+		try{
+			$lista = $this::getAllAdmin();	
+			foreach ($lista as $admin) {
+				if($admin->email == $login){
+					if($admin->senha == $senha){
+						return true;
+					}
+				}		
+			}	
+		}catch(Exception $e){
+			return false;
+		}
 
-		return false;
+
+		
 	}
 
 
