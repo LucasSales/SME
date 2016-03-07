@@ -2,8 +2,6 @@
 include_once '../Controller/ControladorEscola.php';
 include_once '../Controller/ControladorRegional.php';
 include_once '../Controller/ControlePost.php';
-
-session_start();
 $cr = new ControladorRegional();
 
 $todasRegionais = $cr->buscarTodasRegionais()
@@ -85,7 +83,7 @@ $todasRegionais = $cr->buscarTodasRegionais()
 
 
                     <!-- NOME DO CABA!!!-->
-                    <span class="hidden-xs"><?php echo $_SESSION['email_login']; ?></span><span></span></a>
+                    <span class="hidden-xs">Visitante></span><span></span></a>
                      
                     </li>
 
