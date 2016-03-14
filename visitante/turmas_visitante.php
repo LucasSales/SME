@@ -214,7 +214,7 @@ $turmasEscola = $controladorTurma->buscarTurmasEscola($idEscola);
                                     foreach ($turmasEscola as $turma) {
                             ?>
                           
-                                    <a href="aluno_visitante.php?id_turma=<?php echo $turma->idTurma;?> & id_regional=<?php echo $idRegional;?>" class="list-group-item"><?php echo $turma->nome; ?></a>
+                                    <a href="aluno_visitante.php?id_turma=<?php echo $turma->idTurma;?> & id_regional=<?php echo $idRegional;?>" class="list-group-item"><?php echo $turma->nome_turma; ?></a>
                           
                             <?php
                                     }

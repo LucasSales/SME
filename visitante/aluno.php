@@ -11,10 +11,42 @@ $controladorPeriodo = new ControladorPeriodo();
 
 $aluno = $controladorAluno->buscarAluno($idAluno);
 
+$nivelPeriodoInicial = $controladorPeriodo->getNivelAlunoPeriodo(0,$idAluno);
 $nivelPrimeiroPeriodo = $controladorPeriodo->getNivelAlunoPeriodo(1,$idAluno);
 $nivelSegundoPeriodo = $controladorPeriodo->getNivelAlunoPeriodo(2,$idAluno);
 $nivelTerceiroPeriodo = $controladorPeriodo->getNivelAlunoPeriodo(3,$idAluno);
 $nivelQuartoPeriodo = $controladorPeriodo->getNivelAlunoPeriodo(4,$idAluno);
+
+
+$nivel_inicial_1 = 0;
+$nivel_inicial_2 = 0;
+$nivel_inicial_3 = 0;
+$nivel_inicial_4 = 0;
+$nivel_inicial_5 = 0;
+
+if($nivelPeriodoInicial != null){
+    switch ($nivelPeriodoInicial->nivel){
+        case 1:
+            $nivel_inicial_1 = 1;
+            break;
+        case 2:
+            $nivel_inicial_2 = 2;
+            break;
+        case 3:
+            $nivel_inicial_3 = 3;
+            break;
+        case 4:
+            $nivel_inicial_4 = 4;
+            break;
+        case 5:
+            $nivel_inicial_5 = 5;
+            break;
+        default:
+            
+            break;
+    }
+}
+
 
 $nivel_primeiro_1 = 0;
 $nivel_primeiro_2 = 0;
@@ -42,7 +74,7 @@ if($nivelPrimeiroPeriodo != null){
         default:
             
             break;
-}
+    }
 }
 $nivel_segundo_1=0;
 $nivel_segundo_2=0;
@@ -354,6 +386,7 @@ if($nivelQuartoPeriodo != null){
                               function drawChart() {
                                 var data = google.visualization.arrayToDataTable([
                                   ['2016', 'Pre-Silabico', 'Silabico', 'Silabico Alfabético','Alfabético','Ortográfico'],
+                                  ['Diagnostico Inicial', <?php echo $nivel_inicial_1;?>, <?php echo $nivel_inicial_2;?>, <?php echo $nivel_inicial_3;?>,<?php echo $nivel_inicial_4;?>,<?php echo $nivel_inicial_5;?>],
                                   ['1 Bimestre', <?php echo $nivel_primeiro_1;?>, <?php echo $nivel_primeiro_2;?>, <?php echo $nivel_primeiro_3;?>,<?php echo $nivel_primeiro_4;?>,<?php echo $nivel_primeiro_5;?>],
                                   ['2 Bimestre', <?php echo $nivel_segundo_1;?>, <?php echo $nivel_segundo_2;?>, <?php echo $nivel_segundo_3;?>,<?php echo $nivel_segundo_4;?>,<?php echo $nivel_segundo_5;?>],
                                   ['3 Bimestre', <?php echo $nivel_terceiro_1;?>, <?php echo $nivel_terceiro_2;?>, <?php echo $nivel_terceiro_3;?>,<?php echo $nivel_terceiro_4;?>,<?php echo $nivel_terceiro_5;?>],
