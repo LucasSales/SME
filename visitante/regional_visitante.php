@@ -2,15 +2,32 @@
 include_once '../Controller/ControladorEscola.php';
 include_once '../Model/Regional.php';
 include_once '../Controller/ControladorRegional.php';
-
+include_once '../Controller/ControladorTurma.php';
+include_once '../Controller/ControladorAluno.php';
 
 
 $idRegional = $_GET['id_regional'];
 $controladorRegional = new ControladorRegional();
-$ControladorEscola = new ControladorEscola();
+$controladorEscola = new ControladorEscola();
+$controladorTurma = new ControladorTurma();
+$controladorAluno = new ControladorAluno();
 
 $regional = $controladorRegional->getRegional($idRegional);
-$todasEscola = $ControladorEscola->buscarEscolaPorRegional($idRegional);
+$todasEscolas = $controladorEscola->buscarEscolaPorRegional($idRegional);
+
+$quatidadeAlunos = array();
+$qtd = 0;
+
+foreach ($todasEscolas as $escola) {
+    $turmas = $controladorTurma->buscarTurmasEscola($escola->idEscola);
+    
+    foreach($turmas as $turma){
+        $alunos = $controladorAluno->buscarAlunosPorTurma($turma->idTurma);
+        $qtd = $qtd + count($alunos);
+    }   
+    array_push($quatidadeAlunos, $qtd);
+    $qtd = 0;
+}
 
 ?>
 
@@ -216,11 +233,12 @@ $todasEscola = $ControladorEscola->buscarEscolaPorRegional($idRegional);
                             <a class="list-group-item active">Escolas</a>
                           
                           <?php 
-                            if(!empty($todasEscola)){
-                                foreach ($todasEscola as $escola) {
+                            if(!empty($todasEscolas)){
+                                for($i = 0; $i<count($todasEscolas); $i++){
+                                // foreach ($todasEscola as $escola) {
                           ?>
                           
-                                <a href="turmas_visitante.php?id_escola=<?php echo $escola->idEscola;?> & id_regional=<?php echo $idRegional;?>" class="list-group-item"><?php echo $escola->nome; ?></a>
+                                <a href="turmas_visitante.php?id_escola=<?php echo $todasEscolas[$i]->idEscola;?> & id_regional=<?php echo $idRegional;?>" class="list-group-item"><?php echo $todasEscolas[$i]->nome." </br>Quandatidade de alunos ".$quatidadeAlunos[$i]; ?></a>
                           
                           <?php
                                 }
