@@ -21,6 +21,7 @@ $regional = $cRegional->getRegional($idRegional);
 $escolasRegional = $c1->buscarEscolaPorRegional($idRegional);
 
 $data = array();
+$nivelInicial;
 $nivelPrimeiroPeriodo;
 $nivelSegundoPeriodo;
 $nivelTerceiroPeriodo;
@@ -32,7 +33,7 @@ if(count($escolasRegional) > 0){
 	    $alunos2 = $c2->buscarAlunosPorEscola($idEscola2);
 
 	    if(count($alunos2) > 0){
-			$periodo =  1;
+			$periodo =  0;
 			foreach ($alunos2 as $aluno){
 				while($periodo < 5){
 
@@ -72,7 +73,9 @@ if(count($escolasRegional) > 0){
 	                    $nivel = 'Não há dados';
 	                    $flag = FALSE;
 	                }
-	                if($periodo == 1){
+	                if($periodo == 0){
+	                	$nivelInicial = $nivel;
+	                }else if($periodo == 1){
 	                	$nivelPrimeiroPeriodo = $nivel;
 	                }else if( $periodo == 2){
 	                	$nivelSegundoPeriodo = $nivel;
@@ -83,8 +86,8 @@ if(count($escolasRegional) > 0){
 	                }
 	                $periodo = $periodo + 1;
 				}
-				array_push($data, array('aluno'=>''.$aluno->nome.'',  'periodo1'=>''.$nivelPrimeiroPeriodo.'', 'periodo2'=>''.$nivelSegundoPeriodo.'','periodo3'=>''.$nivelTerceiroPeriodo.'', 'periodo4'=>''.$nivelQuartoPeriodo.''));
-				$periodo = 1;
+				array_push($data, array('aluno'=>''.$aluno->nome.'','diagnosticoInicial'=>''.$nivelInicial.'' , 'periodo1'=>''.$nivelPrimeiroPeriodo.'', 'periodo2'=>''.$nivelSegundoPeriodo.'','periodo3'=>''.$nivelTerceiroPeriodo.'', 'periodo4'=>''.$nivelQuartoPeriodo.''));
+				$periodo = 0;
 			}
 			
 
@@ -93,7 +96,7 @@ if(count($escolasRegional) > 0){
 	}
 	$pdf->ezText("<b>Regional ".$regional->nome."</b>", 20);
 		$pdf->ezText("\n \n");
-	$cols = array('aluno'=>'Nome', 'periodo1'=>'Periodo 1','periodo2'=>'Periodo 2','periodo3'=>'Periodo 3','periodo4'=>'Periodo 4');
+	$cols = array('aluno'=>'Nome','diagnosticoInicial'=>'Diagnostico Inicial' ,'periodo1'=>'Periodo 1','periodo2'=>'Periodo 2','periodo3'=>'Periodo 3','periodo4'=>'Periodo 4');
 
 	$pdf->ezTable($data, $cols);
 
