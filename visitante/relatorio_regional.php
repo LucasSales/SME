@@ -13,6 +13,13 @@ $idRegional = $_GET['id_regional'];
 
 $escolasRegional = $c1->buscarEscolaPorRegional($idRegional);
 
+
+$qtd_presilabico_inicial = 0;
+$qtd_silabico_inicial = 0;
+$qtd_alf_inicial = 0;
+$qtd_ort_inicial = 0;
+$qtd_silabico_alf_inicial = 0;
+
 $qtd_presilabico_1 = 0;
 $qtd_silabico_1 = 0;
 $qtd_alf_1 = 0;
@@ -48,7 +55,22 @@ foreach($escolasRegional as $escola ){
 
     $escola = $c1->buscarEscola($idEscola);
 
+    $lista_valores_inicial = $c->getValoresDaEscolaDoPeriodo($idEscola, 0);
 
+    foreach ($lista_valores_inicial as $valor) {
+    # code...
+      if($valor == 1)
+          $qtd_presilabico_inicial = $qtd_presilabico_inicial + 1;
+      else if($valor == 2)
+          $qtd_silabico_inicial = $qtd_silabico_inicial + 1;
+      else if($valor == 3)
+          $qtd_silabico_alf_inicial = $qtd_silabico_alf_inicial + 1;
+      else if($valor == 4)
+          $qtd_alf_inicial = $qtd_alf_inicial + 1;
+      else if($valor == 5)
+          $qtd_ort_inicial = $qtd_ort_inicial + 1;
+    
+    }
 
 
     $lista_valores_1 = $c->getValoresDaEscolaDoPeriodo($idEscola, 1);
@@ -138,6 +160,7 @@ foreach($escolasRegional as $escola ){
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Bimestre', 'Pré-Silabico', 'Silabico', 'Silábico-Alfabético','Alfabetico','Ortografico'],
+          ['Diagnostico Inicial', <?php echo $qtd_presilabico_inicial;?>, <?php echo $qtd_silabico_inicial;?>, <?php echo $qtd_silabico_alf_inicial?>,<?php echo $qtd_alf_inicial?>,<?php echo $qtd_ort_inicial?>],
           ['1 Bimestre', <?php echo $qtd_presilabico_1;?>, <?php echo $qtd_silabico_1;?>, <?php echo $qtd_silabico_alf_1?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_1?>],
           ['2 Bimestre', <?php echo $qtd_presilabico_2;?>, <?php echo $qtd_silabico_2;?>, <?php echo $qtd_silabico_alf_2?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_2?>],
           ['3 Bimestre', <?php echo $qtd_presilabico_3;?>, <?php echo $qtd_silabico_3;?>, <?php echo $qtd_silabico_alf_3?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_3?>],
@@ -262,7 +285,7 @@ foreach($escolasRegional as $escola ){
                     <tbody>
                     <?php 
 
-                    $periodo =  1;
+                    $periodo =  0;
                     foreach ($alunos2 as $aluno) {
                     ?>
                       <tr>
@@ -310,7 +333,7 @@ foreach($escolasRegional as $escola ){
                       }
 
                       echo "</tr>";
-                      $periodo = 1;
+                      $periodo = 0;
                     }
 
                     ?>
