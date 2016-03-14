@@ -20,23 +20,20 @@ class TurmaDAO{
     }
 
 
-    public function getTurmasEscolas(Turma $turma){
+    public function getTurmasEscolas($idEscola){
         try{
-            $sql = "select * from turma where idEscola = ".$turma->idEscola;
+            $sql = "select *from turma where idEscola = ".$idEscola."";
+            //echo $sql;
+            $resultado = $this->conexao->prepare($sql);
+                        
 
-            $resultado = $this->conexao->query($sql);
+            if(!$resultado->execute())
+                return false;
 
             $arrayTurmas = array();
 
-            foreach ($resultado as $valor) {
-                # code...
-                $turma = new Turma();
-                $turma->idTurma = $valor['idTurma'];
-                $turma->idEscola = $valor['idEscola'];
-                $turma->nome = $valor['nome_turma'];
-
+            while($turma = $resultado->fetchObject())
                 array_push($arrayTurmas, $turma);
-            }
                 
 
             return $arrayTurmas;

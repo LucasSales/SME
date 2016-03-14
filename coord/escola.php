@@ -1,6 +1,7 @@
 <?php 
 include_once '../Controller/ControladorEscola.php';
 include_once '../Controller/ControladorAluno.php';
+include_once '../Model/Turma.php';
 include_once '../Controller/ControladorTurma.php';
 
 if(!isset($_SESSION)){
@@ -164,13 +165,18 @@ $nome_usuario = $_SESSION['email_login'];
 
                                     <ul class="list-group">
                                         
-                                    <?php 
-                                        foreach ($turmas as $turma) {
+                                    <?php
+                                        if(!empty($turmas)){ 
+                                            
+                                            foreach ($turmas as $turma) {
                                     ?>
-                                    <li><a href="turma.php?idTurma=<?php echo $turma->idTurma;?> & idEscola=<?php echo $idEscola;?>" class="list-group-item"><?php echo $turma->nome; ?></a></li>
-                                    <?php 
-                                        }
+                                            <li><a href="turma.php?idTurma=<?php echo $turma->idTurma;?> & idEscola=<?php echo $idEscola;?>" class="list-group-item"><?php echo $turma->nome_turma; ?></a></li>
 
+                                    <?php 
+                                            }
+                                        }else{
+                                            echo "<a class='list-group-item'>Não há Turmas</a>";
+                                        }
                                     ?>
                                     </ul>
                                 </div>

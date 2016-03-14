@@ -22,15 +22,16 @@ $regional = "";
 
 
 foreach ($lista_regionais as $valor){
-	# code...
+	
 	if($valor->idRegional == $idRegional){
-		$_SESSION['id_regional'] = $valor->idRegional;
+		
+        $_SESSION['id_regional'] = $valor->idRegional;
 		$_SESSION['nome_regional'] = $valor->nome;	
+
 	} 
 }
 
 $nome_usuario = $_SESSION['email_login'];
-
 
 $escolas = $controladorEscola->buscarEscolaPorRegional($idRegional);
 
@@ -135,22 +136,22 @@ $escolas = $controladorEscola->buscarEscolaPorRegional($idRegional);
         <div id="wrapper">
             <!--BEGIN SIDEBAR MENU-->
             <nav style="min-height: 100%;" id="sidebar" role="navigation" data-step="2" data-intro="Template has <b>many navigation styles</b>" data-position="right" class="navbar-default navbar-static-side">
-            <div class="sidebar-collapse menu-scroll">
-                <ul id="side-menu" class="nav">
-                    
-                     <div class="clearfix"></div>
-                    <li class="active"><a href="#"><i class="glyphicon glyphicon-book">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Escolas</span></a></li>
-                    <li class="none"><a href="indexPost.php"><i class="glyphicon glyphicon-pencil">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Post</span></a></li>
-                    <li class="none"><a href="gerar_pdf.php?id_regional=<?php echo $_SESSION['id_regional'];?>"><i class="glyphicon glyphicon-book">
-                        <div class="icon-bg bg-orange"></div>
-                    </i><span class="menu-title">Gerar PDF</span></a></li>
-                    
-                </ul>
-            </div>
+                <div class="sidebar-collapse menu-scroll">
+                    <ul id="side-menu" class="nav">
+                        
+                         <div class="clearfix"></div>
+                        <li class="active"><a href="#"><i class="glyphicon glyphicon-book">
+                            <div class="icon-bg bg-orange"></div>
+                        </i><span class="menu-title">Escolas</span></a></li>
+                        <li class="none"><a href="indexPost.php"><i class="glyphicon glyphicon-pencil">
+                            <div class="icon-bg bg-orange"></div>
+                        </i><span class="menu-title">Post</span></a></li>
+                        <li class="none"><a href="gerar_pdf.php?id_regional=<?php echo $_SESSION['id_regional'];?>"><i class="glyphicon glyphicon-book">
+                            <div class="icon-bg bg-orange"></div>
+                        </i><span class="menu-title">Gerar PDF</span></a></li>
+                        
+                    </ul>
+                </div>
         </nav>
           
           
@@ -159,7 +160,7 @@ $escolas = $controladorEscola->buscarEscolaPorRegional($idRegional);
                 <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
                     <div class="page-header pull-left">
                         <div class="page-title">
-                            Coordenador - <?php echo $_SESSION['nome_regional']; ?></div>
+                            Coordenador - <?php echo $valor->nome; ?></div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         

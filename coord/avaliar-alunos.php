@@ -159,7 +159,8 @@ $alunos = $controladorAluno->buscarAlunosPorEscola($idEscola);
                             <h2>Selecione o Período da Avaliação</h2>
 
                             <form action="../Controller/ControladorPeriodo.php" method="post">
-                                            <input checked name="periodo" type="radio" value="1"/>1
+                                            <input checked name="periodo" type="radio" value="0"/>Inicial
+                                            <input name="periodo" type="radio" value="1"/>1
                                             <input name="periodo" type="radio" value="2"/>2
                                             <input name="periodo" type="radio" value="3"/>3
                                             <input name="periodo" type="radio" value="4"/>4

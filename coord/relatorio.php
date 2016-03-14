@@ -13,6 +13,11 @@ $alunos = $c2->buscarAlunosPorEscola($idEscola);
 
 $escola = $c1->buscarEscola($idEscola);
 
+$qtd_presilabico_inicial = 0;
+$qtd_silabico_inicial = 0;
+$qtd_alf_inicial = 0;
+$qtd_ort_inicial = 0;
+$qtd_silabico_alf_inicial = 0;
 
 $qtd_presilabico_1 = 0;
 $qtd_silabico_1 = 0;
@@ -38,72 +43,92 @@ $qtd_alf_4 = 0;
 $qtd_ort_4 = 0;
 $qtd_silabico_alf_4 = 0;
 
+
+$lista_valores_inicial = $c->getValoresDaEscolaDoPeriodo($idEscola, 0);
+
+    foreach ($lista_valores_inicial as $valor) {
+    # code...
+      if($valor == 1)
+          $qtd_presilabico_inicial = $qtd_presilabico_inicial + 1;
+      else if($valor == 2)
+          $qtd_silabico_inicial = $qtd_silabico_inicial + 1;
+      else if($valor == 3)
+          $qtd_silabico_alf_inicial = $qtd_silabico_alf_inicial + 1;
+      else if($valor == 4)
+          $qtd_alf_inicial = $qtd_alf_inicial + 1;
+      else if($valor == 5)
+          $qtd_ort_inicial = $qtd_ort_inicial + 1;
+    
+    }
+
+
+
 $lista_valores_1 = $c->getValoresDaEscolaDoPeriodo($idEscola, 1);
 
     foreach ($lista_valores_1 as $valor) {
     # code...
-    if($valor == 1)
-        $qtd_presilabico_1 = $qtd_presilabico_1 + 1;
-    else if($valor == 2)
-        $qtd_silabico_1 = $qtd_silabico_1 + 1;
-    else if($valor == 3)
-        $qtd_silabico_alf_1 = $qtd_silabico_alf_1 + 1;
-    else if($valor == 4)
-        $qtd_alf_1 = $qtd_alf_1 + 1;
-    else if($valor == 5)
-        $qtd_ort_1 = $qtd_ort_1 + 1;
-    
+      if($valor == 1)
+          $qtd_presilabico_1 = $qtd_presilabico_1 + 1;
+      else if($valor == 2)
+          $qtd_silabico_1 = $qtd_silabico_1 + 1;
+      else if($valor == 3)
+          $qtd_silabico_alf_1 = $qtd_silabico_alf_1 + 1;
+      else if($valor == 4)
+          $qtd_alf_1 = $qtd_alf_1 + 1;
+      else if($valor == 5)
+          $qtd_ort_1 = $qtd_ort_1 + 1;
+      
     }
 
 $lista_valores_2 = $c->getValoresDaEscolaDoPeriodo($idEscola, 2);
 
     foreach ($lista_valores_2 as $valor) {
-    # code...
-    if($valor == 1)
-        $qtd_presilabico_2 = $qtd_presilabico_2 + 1;
-    else if($valor == 2)
-        $qtd_silabico_2 = $qtd_silabico_2 + 1;
-    else if($valor == 3)
-        $qtd_silabico_alf_2 = $qtd_silabico_alf_2 + 1;
-    else if($valor == 4)
-        $qtd_alf_2 = $qtd_alf_2 + 1;
-    else if($valor == 5)
-        $qtd_ort_2 = $qtd_ort_2 + 1;
-    
+      # code...
+      if($valor == 1)
+          $qtd_presilabico_2 = $qtd_presilabico_2 + 1;
+      else if($valor == 2)
+          $qtd_silabico_2 = $qtd_silabico_2 + 1;
+      else if($valor == 3)
+          $qtd_silabico_alf_2 = $qtd_silabico_alf_2 + 1;
+      else if($valor == 4)
+          $qtd_alf_2 = $qtd_alf_2 + 1;
+      else if($valor == 5)
+          $qtd_ort_2 = $qtd_ort_2 + 1;
+      
     }
 
 $lista_valores_3 = $c->getValoresDaEscolaDoPeriodo($idEscola, 3);
 
     foreach ($lista_valores_3 as $valor) {
-    # code...
-    if($valor == 1)
-        $qtd_presilabico_3 = $qtd_presilabico_3 + 1;
-    else if($valor == 2)
-        $qtd_silabico_3 = $qtd_silabico_3 + 1;
-    else if($valor == 3)
-        $qtd_silabico_alf_3 = $qtd_silabico_alf_3 + 1;
-    else if($valor == 4)
-        $qtd_alf_3 = $qtd_alf_3 + 1;
-    else if($valor == 5)
-        $qtd_ort_3 = $qtd_ort_3 + 1;
+      # code...
+      if($valor == 1)
+          $qtd_presilabico_3 = $qtd_presilabico_3 + 1;
+      else if($valor == 2)
+          $qtd_silabico_3 = $qtd_silabico_3 + 1;
+      else if($valor == 3)
+          $qtd_silabico_alf_3 = $qtd_silabico_alf_3 + 1;
+      else if($valor == 4)
+          $qtd_alf_3 = $qtd_alf_3 + 1;
+      else if($valor == 5)
+          $qtd_ort_3 = $qtd_ort_3 + 1;
     
     }
 
 $lista_valores_4 = $c->getValoresDaEscolaDoPeriodo($idEscola, 4);
 
     foreach ($lista_valores_4 as $valor) {
-    # code...
-    if($valor == 1)
-        $qtd_presilabico_4 = $qtd_presilabico_4 + 1;
-    else if($valor == 2)
-        $qtd_silabico_4 = $qtd_silabico_4 + 1;
-    else if($valor == 3)
-        $qtd_silabico_alf_4 = $qtd_silabico_alf_4 + 1;
-    else if($valor == 4)
-        $qtd_alf_4 = $qtd_alf_4 + 1;
-    else if($valor == 5)
-        $qtd_ort_4 = $qtd_ort_4 + 1;
-    
+      # code...
+      if($valor == 1)
+          $qtd_presilabico_4 = $qtd_presilabico_4 + 1;
+      else if($valor == 2)
+          $qtd_silabico_4 = $qtd_silabico_4 + 1;
+      else if($valor == 3)
+          $qtd_silabico_alf_4 = $qtd_silabico_alf_4 + 1;
+      else if($valor == 4)
+          $qtd_alf_4 = $qtd_alf_4 + 1;
+      else if($valor == 5)
+          $qtd_ort_4 = $qtd_ort_4 + 1;
+      
     }
 $qtd_presilabico_media = ($qtd_presilabico_1+$qtd_presilabico_2+$qtd_presilabico_3+$qtd_presilabico_4)/4;
 $qtd_silabico_media = ($qtd_silabico_1+$qtd_silabico_2+$qtd_silabico_3+$qtd_silabico_4)/4;
@@ -114,6 +139,7 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
 
 
 <html>
+<meta charset="ISO-8859-1">
   <head>
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -122,6 +148,7 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Bimestre', 'Pré-Silabico', 'Silabico', 'Silábico-Alfabético','Alfabetico','Ortografico'],
+          ['Diagnostico Inicial', <?php echo $qtd_presilabico_inicial;?>, <?php echo $qtd_silabico_inicial;?>, <?php echo $qtd_silabico_alf_inicial?>,<?php echo $qtd_alf_inicial?>,<?php echo $qtd_ort_inicial?>],
           ['1 Bimestre', <?php echo $qtd_presilabico_1;?>, <?php echo $qtd_silabico_1;?>, <?php echo $qtd_silabico_alf_1?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_1?>],
           ['2 Bimestre', <?php echo $qtd_presilabico_2;?>, <?php echo $qtd_silabico_2;?>, <?php echo $qtd_silabico_alf_2?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_2?>],
           ['3 Bimestre', <?php echo $qtd_presilabico_3;?>, <?php echo $qtd_silabico_3;?>, <?php echo $qtd_silabico_alf_3?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_3?>],
@@ -131,7 +158,6 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
         var options = {
           chart: {
             title: 'Grafico por Bimestre',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
           }
         };
 
@@ -141,6 +167,7 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
       }
     </script>
   </head>
+  <meta charset="ISO-8859-1">
   <body>
     <div id="columnchart_material" style="width: 1250px; height: 500px;"></div>
   </body>
@@ -231,6 +258,7 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
 
                         <th>#</th>
                         <th>Aluno </th>
+                        <th>Diagnostico Inicial</th>
                         <th>Periodo 1</th>
                         <th>Periodo 2</th>
                         <th>Periodo 3</th>
@@ -241,7 +269,7 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
                     <tbody>
                     <?php 
 
-                    $periodo = 1;
+                    $periodo = 0;
                     foreach ($alunos as $aluno) {
                     ?>
                       <tr>
@@ -289,7 +317,7 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
                       }
 
                       echo "</tr>";
-                      $periodo = 1;
+                      $periodo = 0;
                     }
 
                     ?>

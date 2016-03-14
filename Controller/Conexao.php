@@ -5,6 +5,10 @@ class Conexao{
 	public static $conexao;
 
     public static function getConexao(){
+        //projetoseduc.esy.es dominio 
+        $db = 'u157842610_sme';
+        $user = 'u157842610_root';
+        $senha = 123456;
         if(Conexao::$conexao!=null){
         	try {
         		return Conexao::$conexao;	

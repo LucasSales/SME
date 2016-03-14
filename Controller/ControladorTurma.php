@@ -13,9 +13,10 @@ if(isset($_POST['acao'])){
     if($acao == "cadastrar"){
         $nome = $_POST['nome'];
         $idEscola = $_POST['idEscola'];
-
+        var_dump($idEscola);
         $c = new ControladorTurma();
         $c->cadastrarTurma($nome, $idEscola);
+
         header('location:../coord/escola.php?idEscola='.$idEscola);
 
     }
@@ -65,7 +66,7 @@ class ControladorTurma{
         if(isset($idEscola)){
             $turma = new Turma();
             $turma->setIdEscola($idEscola);
-            return $this->dao->getTurmasEscolas($turma);
+            return $this->dao->getTurmasEscolas($idEscola);
         }
     }
 

@@ -120,14 +120,15 @@ foreach($escolasRegional as $escola ){
     }
 }
 
-$qtd_presilabico_media = ($qtd_presilabico_1+$qtd_presilabico_2+$qtd_presilabico_3+$qtd_presilabico_4)/4;
-$qtd_silabico_media = ($qtd_silabico_1+$qtd_silabico_2+$qtd_silabico_3+$qtd_silabico_4)/4;
-$qtd_silabico_alf_media = ($qtd_silabico_alf_1+$qtd_silabico_alf_2+$qtd_silabico_alf_3+$qtd_silabico_alf_4)/4;
-$qtd_alf_media = ($qtd_alf_1+$qtd_alf_2+$qtd_alf_3+$qtd_alf_4)/4;
-$qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
+// $qtd_presilabico_media = ($qtd_presilabico_1+$qtd_presilabico_2+$qtd_presilabico_3+$qtd_presilabico_4)/4;
+// $qtd_silabico_media = ($qtd_silabico_1+$qtd_silabico_2+$qtd_silabico_3+$qtd_silabico_4)/4;
+// $qtd_silabico_alf_media = ($qtd_silabico_alf_1+$qtd_silabico_alf_2+$qtd_silabico_alf_3+$qtd_silabico_alf_4)/4;
+// $qtd_alf_media = ($qtd_alf_1+$qtd_alf_2+$qtd_alf_3+$qtd_alf_4)/4;
+// $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
   ?>
 
 <html>
+<meta charset="ISO-8859-1">
   <head>
 
      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -140,14 +141,12 @@ $qtd_ort_media = ($qtd_ort_1+$qtd_ort_2+$qtd_ort_3+$qtd_ort_4)/4;
           ['1 Bimestre', <?php echo $qtd_presilabico_1;?>, <?php echo $qtd_silabico_1;?>, <?php echo $qtd_silabico_alf_1?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_1?>],
           ['2 Bimestre', <?php echo $qtd_presilabico_2;?>, <?php echo $qtd_silabico_2;?>, <?php echo $qtd_silabico_alf_2?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_2?>],
           ['3 Bimestre', <?php echo $qtd_presilabico_3;?>, <?php echo $qtd_silabico_3;?>, <?php echo $qtd_silabico_alf_3?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_3?>],
-          ['4 Bimestre', <?php echo $qtd_presilabico_4;?>, <?php echo $qtd_silabico_4;?>, <?php echo $qtd_silabico_alf_4?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_4?>],
-          ['GERAl', <?php echo $qtd_presilabico_media;?>, <?php echo $qtd_silabico_media;?>, <?php echo $qtd_silabico_alf_media?>,<?php echo $qtd_alf_media?>,<?php echo $qtd_ort_media?>]
-        
+          ['4 Bimestre', <?php echo $qtd_presilabico_4;?>, <?php echo $qtd_silabico_4;?>, <?php echo $qtd_silabico_alf_4?>,<?php echo $qtd_alf_1?>,<?php echo $qtd_ort_4?>]
         ]);
 
         var options = {
           chart: {
-            title: 'Grafico por Bimestre',
+            title: 'Grafico',
             //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
           }
         };
