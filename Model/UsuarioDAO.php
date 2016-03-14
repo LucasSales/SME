@@ -57,7 +57,7 @@ class UsuarioDAO{
 	public function isAdmin($login, $senha){
 
 		try{
-			$lista = $this::getAllAdmin();	
+			$lista = $this->getAllAdmin();	
 			foreach ($lista as $admin) {
 				if($admin->email == $login){
 					if($admin->senha == $senha){

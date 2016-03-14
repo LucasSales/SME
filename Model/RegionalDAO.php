@@ -59,7 +59,7 @@ class RegionalDAO{
 	}
 
 	public function getRegionalPorNome($nome){
-		$regionais = $this::getAllRegionais();
+		$regionais = $this->getAllRegionais();
 		foreach ($regionais as $regional) {
 					# code...
 			if($regional->nome == $nome)
