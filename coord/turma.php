@@ -11,7 +11,7 @@ $controladorTurma = new ControladorTurma();
 $idTurma = $_GET['idTurma'];
 $idEscola = $_GET['idEscola'];
 $alunos = $controladorAluno->buscarAlunosPorTurma($idTurma);
-
+$qtdAlunos=count($alunos);
 $turma = $controladorTurma->getTurma($idTurma);
 ?>
 
@@ -144,7 +144,7 @@ $turma = $controladorTurma->getTurma($idTurma);
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         
                         
-                        <li class="active">Regionais</li>
+                        <!-- <li class="active">Quantidade de Alunos - <?php echo $qtdAlunos; ?></li> -->
                     </ol>
                     <div class="clearfix">
                     </div>

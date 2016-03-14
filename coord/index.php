@@ -1,6 +1,9 @@
 <?php 
 include_once '../Controller/ControladorEscola.php';
 include_once '../Controller/ControladorRegional.php';
+include_once '../Controller/ControladorTurma.php';
+include_once '../Controller/ControladorAluno.php';
+
 if(!isset($_SESSION)){
     session_start();
 }
@@ -16,6 +19,9 @@ else
 
 $controladorEscola = new ControladorEscola();
 $controladorRegional = new controladorRegional();
+$controladorTurma = new ControladorTurma();
+$controladorAluno = new ControladorAluno();
+
 
 $lista_regionais = $controladorRegional->buscarTodasRegionais();
 $regional = "";
@@ -34,6 +40,22 @@ foreach ($lista_regionais as $valor){
 $nome_usuario = $_SESSION['email_login'];
 
 $escolas = $controladorEscola->buscarEscolaPorRegional($idRegional);
+$quatidadeAlunos = array();
+$qtd = 0;
+foreach ($escolas as $escola) {
+    $turmas = $controladorTurma->buscarTurmasEscola($escola->idEscola);
+    
+    foreach($turmas as $turma){
+        $alunos = $controladorAluno->buscarAlunosPorTurma($turma->idTurma);
+        $qtd = $qtd + count($alunos);
+    }   
+    array_push($quatidadeAlunos, $qtd);
+    $qtd = 0;
+}
+
+
+
+
 
 ?>
 
@@ -192,10 +214,11 @@ $escolas = $controladorEscola->buscarEscolaPorRegional($idRegional);
                           <a class="list-group-item active">Escolas</a>
                           
                           <?php 
-                            foreach ($escolas as $escola) {
+                            for($i = 0; $i < count($escolas); $i++){
+                            // foreach ($escolas as $escola) {
                           ?>
                           
-                            <a href="escola.php?idEscola=<?php echo $escola->idEscola;?>" class="list-group-item"><?php echo $escola->nome; ?></a>
+                            <a href="escola.php?idEscola=<?php echo $escolas[$i]->idEscola;?>" class="list-group-item"><?php echo $escolas[$i]->nome."  </br>Quantidade de alunos ".$quatidadeAlunos[$i]; ?></a>
                           
                           <?php
                             } 
